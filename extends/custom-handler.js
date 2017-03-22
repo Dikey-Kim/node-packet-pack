@@ -1,0 +1,2 @@
+var util=require("util"),Handler=require("../lib/handler"),Parser=require("../lib/parser");function CustomHandler(e,f){var a=new Parser(f);this.type=e;this.handle=function(c){var d=this;a.parse(this.buf,function(b,a,g){if(b)throw console.log(JSON.stringify(b)),b;d.obj[c]=a;d.buf=g})};this.unhandle=function(c){var d=this;a.unparse(this.desc[c],function(b,a,c){if(b)throw console.log(JSON.stringify(b)),b;d.bufArray.push(a)})};this.addHandle=function(c){a.addHandle(c);return this}}
+util.inherits(CustomHandler,Handler);module.exports=CustomHandler;
